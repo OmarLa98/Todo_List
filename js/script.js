@@ -15,17 +15,27 @@ function TodoPost(e) {
     var list = document.getElementById("TodoList");
 
     let currentListHTML = list.innerHTML;
-    list.innerHTML = currentListHTML + '<input type = "checkbox" name="todo" />' + todo;
+    list.innerHTML = currentListHTML + '<input type = "checkbox" name="todo" />' + todo + '<br>';
 }
 
 function TodoClear(e) {
     e.preventDefault();
+    var todos = document.getElementsByName("todo");
+    for (var i = 0; i < todos.length; i++) {
+        todos[i].checked = false;
+    }
 }
 
 function TodoMark(e) {
     e.preventDefault();
+    var todos = document.getElementsByName("todo");
+    for (var i = 0; i < todos.length; i++) {
+        todos[i].checked = true;
+    }
 }
 
 function TodoDel(e) {
     e.preventDefault();
+    var list = document.getElementById("TodoList");
+    list.innerHTML = "";
 }
